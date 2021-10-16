@@ -7,12 +7,12 @@ const ActivityCard = (props) => {
     <Card color='red'>
       <Image src={runningImage} wrapped ui={false} />
       <Card.Content>
-        <Card.Header>Exercise</Card.Header>
+        <Card.Header>{props.activityTitle}</Card.Header>
         <Card.Meta>
-          <span className='exerciseType'>Running</span>
+          <span className='exerciseType'>{props.activityType}</span>
         </Card.Meta>
         <Card.Description>
-          Run/Walk 1 mile outside.
+          {props.activityDesc}
         </Card.Description>
       </Card.Content>
     </Card>
