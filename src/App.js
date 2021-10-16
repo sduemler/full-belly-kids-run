@@ -1,27 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
-import { initializeApp } from "firebase/app";
+import Activities from './activities';
 
 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className='App'>
+        <header>
+            <div className='wrapper'>
+              <h1>Full Belly 5K Kids</h1>
+              
+            </div>
+        </header>
+        <div className='container'>
+          <section className='add-item'>
+              <form>
+                <input type="text" name="username" placeholder="What's your name?" />
+                <input type="text" name="currentItem" placeholder="What are you bringing?" />
+                <button>Add Item</button>
+              </form>
+          </section>
+          <section className='display-item'>
+            <div className='wrapper'>
+              <ul>
+              </ul>
+            </div>
+          </section>
+        </div>
+        <div className='container'>
+          <section className='all-items'>
+            <Activities />
+          </section>
+        </div>
+      </div>
   );
 }
 
