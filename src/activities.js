@@ -1,12 +1,20 @@
-import React from 'react';
-import { FirebaseContext } from './components/Firebase'
+import React, { Component } from 'react';
 
-const Activities = () => (
-  <FirebaseContext.Consumer>
-    {firebase => {
-      return <div>I have access to Firebase!</div>
-    }}
-  </FirebaseContext.Consumer>
-)
+class Activities extends Component {
+  constructor(props) {
+    super(props)
+
+    props.firebase.info().on('value', snapshot => {
+      console.log(snapshot.val());
+    })
+  }
+
+  render() {
+    return (
+      <div>Reached the Activities page!</div>
+    )
+  }
+
+}
 
 export default Activities;
