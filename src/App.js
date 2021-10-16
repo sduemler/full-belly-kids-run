@@ -1,5 +1,5 @@
 import './App.css';
-import Activities from './activities';
+import ActivityList from './components/Activities/ActivityList';
 import { FirebaseContext } from './components/Firebase';
 
 
@@ -13,7 +13,7 @@ function App() {
               
             </div>
         </header>
-        <div className='container'>
+        {/* <div className='container'>
           <section className='add-item'>
               <form>
                 <input type="text" name="username" placeholder="What's your name?" />
@@ -27,11 +27,11 @@ function App() {
               </ul>
             </div>
           </section>
-        </div>
+        </div> */}
         <div className='container'>
           <section className='all-items'>
             <FirebaseContext.Consumer>
-              {firebase => <Activities firebase={firebase} />}
+              {firebase => <ActivityList firebase={firebase} />}
             </FirebaseContext.Consumer>
           </section>
         </div>

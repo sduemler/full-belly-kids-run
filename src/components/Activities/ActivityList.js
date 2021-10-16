@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import ActivityCard from './ActivityCard';
 
-class Activities extends Component {
+class ActivityList extends Component {
   constructor(props) {
     super(props)
 
@@ -11,10 +12,13 @@ class Activities extends Component {
 
   render() {
     return (
-      <div>Reached the Activities page!</div>
+      <div>
+        <div>Reached the Activities page!</div>
+        <ActivityCard />
+      </div>
     )
   }
 
 }
 
-export default Activities;
+export default ActivityList;
