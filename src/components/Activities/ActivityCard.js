@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 import runningImage from '../../resources/images/running-outside.jpg'
 
 const ActivityCard = (props) => {

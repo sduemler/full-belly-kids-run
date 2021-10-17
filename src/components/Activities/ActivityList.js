@@ -6,24 +6,24 @@ class ActivityList extends Component {
   constructor(props) {
     super(props)
 
+    this.state = {activites: []}
+
     props.firebase.info().on('value', snapshot => {
-      console.log(snapshot.val());
+      const actList = snapshot.val().Activities;
+      this.state = {activities: actList.slice(1).map((activity) =>
+          <ActivityCard key={actList.indexOf(activity)} activityTitle="Exercise" activityType="Running" activityDesc={activity} />
+        )
+      };
+      console.log(this.state)
     })
   }
-
+  
   render() {
     return (
       <div>
         <Card.Group itemsPerRow={3}>
-          <ActivityCard activityTitle="Exercise" activityType="Running" activityDesc="Run/Walk 1 mile outside." />
-          <ActivityCard activityTitle="Exercise" activityType="Running" activityDesc="Run/Walk 1 mile outside." />
-          <ActivityCard activityTitle="Exercise" activityType="Running" activityDesc="Run/Walk 1 mile outside." />
-          <ActivityCard activityTitle="Exercise" activityType="Running" activityDesc="Run/Walk 1 mile outside." />
-          <ActivityCard activityTitle="Exercise" activityType="Running" activityDesc="Run/Walk 1 mile outside." />
-          <ActivityCard activityTitle="Exercise" activityType="Running" activityDesc="Run/Walk 1 mile outside." />
+          {this.state.activities}
         </Card.Group>
-        {/* <div>Reached the Activities page!</div>
-        <ActivityCard /> */}
       </div>
     )
   }
