@@ -6,23 +6,26 @@ class ActivityList extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {activites: []}
+    this.state = {activities: []}
+  }
 
-    props.firebase.info().on('value', snapshot => {
-      const actList = snapshot.val().Activities;
-      this.state = {activities: actList.slice(1).map((activity) =>
-          <ActivityCard key={actList.indexOf(activity)} activityTitle="Exercise" activityType="Running" activityDesc={activity} />
-        )
-      };
-      console.log(this.state)
+  componentDidMount() {
+    this.props.firebase.info().on('value', snapshot => {
+      const actList = snapshot.val().Activities.slice(1);
+      this.setState({
+        activities: actList ?? []}
+      );
     })
   }
   
   render() {
+    console.log(this.state)
     return (
       <div>
         <Card.Group itemsPerRow={3}>
-          {this.state.activities}
+          {this.state.activities.map((activity) => 
+            <ActivityCard key={activity} activityTitle="Exercise" activityType="Running" activityDesc={activity} />
+          )}
         </Card.Group>
       </div>
     )
