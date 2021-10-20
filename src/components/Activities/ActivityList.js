@@ -22,7 +22,7 @@ class ActivityList extends Component {
     console.log(this.state)
     return (
       <div>
-        <Card.Group itemsPerRow={3}>
+        <Card.Group>
           {this.state.activities.map((activity) => 
             <ActivityCard key={activity} activityTitle="Exercise" activityType="Running" activityDesc={activity} />
           )}
