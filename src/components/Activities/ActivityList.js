@@ -24,7 +24,7 @@ class ActivityList extends Component {
       <div>
         <Card.Group>
           {this.state.activities.map((activity) => 
-            <ActivityCard key={activity} activityTitle="Exercise" activityType="Running" activityDesc={activity} />
+            <ActivityCard key={activity} activityDesc={activity} />
           )}
         </Card.Group>
       </div>

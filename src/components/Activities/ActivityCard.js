@@ -1,18 +1,19 @@
 import React from 'react';
-import { Card, Image, Button } from 'semantic-ui-react';
+import { Card, Image, Button, Icon } from 'semantic-ui-react';
 import runningImage from '../../resources/images/running-outside.jpg'
+import quality from '../../resources/images/quality.png'
 
 const ActivityCard = (props) => {
   return (
     <Card color='red'>
       <Image src={runningImage} wrapped ui={false} />
       <Card.Content>
-        {/* <Card.Header>{props.activityTitle}</Card.Header>
-        <Card.Meta>
-          <span className='exerciseType'>{props.activityType}</span>
-        </Card.Meta> */}
+        <Card.Header>
+          Task Completed!
+          <Image src={quality} size='mini' />
+        </Card.Header>
         <Card.Description>
-          {props.activityDesc}
+          <strong>{props.activityDesc}</strong>
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
