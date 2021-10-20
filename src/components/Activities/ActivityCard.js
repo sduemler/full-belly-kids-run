@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Button, Icon } from 'semantic-ui-react';
+import { Card, Image, Button } from 'semantic-ui-react';
 import runningImage from '../../resources/images/running-outside.jpg'
 import quality from '../../resources/images/quality.png'
 
