@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Image, Button } from 'semantic-ui-react';
 import runningImage from '../../resources/images/running-outside.jpg'
 
 const ActivityCard = (props) => {
@@ -7,13 +7,18 @@ const ActivityCard = (props) => {
     <Card color='red'>
       <Image src={runningImage} wrapped ui={false} />
       <Card.Content>
-        <Card.Header>{props.activityTitle}</Card.Header>
+        {/* <Card.Header>{props.activityTitle}</Card.Header>
         <Card.Meta>
           <span className='exerciseType'>{props.activityType}</span>
-        </Card.Meta>
+        </Card.Meta> */}
         <Card.Description>
           {props.activityDesc}
         </Card.Description>
+      </Card.Content>
+      <Card.Content extra>
+        <Button positive fluid>
+          Completed!
+        </Button>
       </Card.Content>
     </Card>
   )
