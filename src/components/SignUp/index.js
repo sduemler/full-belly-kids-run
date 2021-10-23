@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import { withFirebase } from "../Firebase";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { withFirebase } from '../Firebase';
 
-import * as ROUTES from "../Navigation/routes";
+import * as ROUTES from '../Navigation/routes';
 
 const SignUpPage = () => (
   <div>
@@ -12,10 +12,10 @@ const SignUpPage = () => (
 );
 
 const INITIAL_STATE = {
-  username: "",
-  email: "",
-  passwordOne: "",
-  passwordTwo: "",
+  username: '',
+  email: '',
+  passwordOne: '',
+  passwordTwo: '',
   error: null,
 };
 
@@ -27,7 +27,7 @@ class SignUpFormBase extends Component {
   }
 
   onSubmit = (event) => {
-    const { username, email, passwordOne } = this.state;
+    const { email, passwordOne } = this.state;
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
@@ -50,9 +50,9 @@ class SignUpFormBase extends Component {
 
     const isInvalid =
       passwordOne !== passwordTwo ||
-      passwordOne === "" ||
-      email === "" ||
-      username === "";
+      passwordOne === '' ||
+      email === '' ||
+      username === '';
 
     return (
       <form onSubmit={this.onSubmit}>
