@@ -1,5 +1,6 @@
 import app from 'firebase/compat/app'
 import 'firebase/compat/database'
+import 'firebase/compat/auth';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -16,9 +17,25 @@ class Firebase {
   constructor() {
     app.initializeApp(firebaseConfig);
 
+    this.auth = app.auth();
     this.db = app.database()
   }
 
+
+  // *** Auth API ***
+  doCreateUserWithEmailAndPassword = (email, password) =>
+    this.auth.createUserWithEmailAndPassword(email, password);
+
+  doSignInWithEmailandPassword = (email, password) =>
+    this.auth.signInWithEmailAndPassword(email, password);
+    
+  doSignOut = () => this.auth.signOut();
+
+  doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
+
+  doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
+
+  // *** DB API ***
   info = () => this.db.ref('2021');
 }
 
