@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
-import { SignUpLink } from "../SignUp";
-import { withFirebase } from "../Firebase";
-import * as ROUTES from "../Navigation/routes";
+import { SignUpLink } from '../SignUp';
+import { withFirebase } from '../Firebase';
+import * as ROUTES from '../Navigation/routes';
 
 const SignInPage = () => (
   <div>
@@ -14,13 +14,13 @@ const SignInPage = () => (
 );
 
 const INITIAL_STATE = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
   error: null,
 };
 
 class SignInFormBase extends Component {
-  constrcutor(props) {
+  constructor(props) {
     super(props);
 
     this.state = { ...INITIAL_STATE };
@@ -49,7 +49,7 @@ class SignInFormBase extends Component {
   render() {
     const { email, password, error } = this.state;
 
-    const isInvalid = password === "" || email === "";
+    const isInvalid = password === '' || email === '';
 
     return (
       <form onSubmit={this.onSubmit}>

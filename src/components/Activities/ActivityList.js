@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import ActivityCard from "./ActivityCard";
-import { Card } from "semantic-ui-react";
+import React, { Component } from 'react';
+import ActivityCard from './ActivityCard';
+import { Card } from 'semantic-ui-react';
+import { withFirebase } from '../Firebase';
 
 class ActivityList extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class ActivityList extends Component {
   }
 
   componentDidMount() {
-    this.props.firebase.info().on("value", (snapshot) => {
+    this.props.firebase.info().on('value', (snapshot) => {
       const actList = snapshot.val().Activities.slice(1);
       this.setState({
         activities: actList ?? [],
@@ -32,4 +33,4 @@ class ActivityList extends Component {
   }
 }
 
-export default ActivityList;
+export default withFirebase(ActivityList);

@@ -1,7 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import * as ROUTERS from "./routes";
+import SignOutButton from '../SignOut';
+import * as ROUTERS from './routes';
 
 const Navigation = () => (
   <div>
@@ -17,6 +18,9 @@ const Navigation = () => (
       </li>
       <li>
         <Link to={ROUTERS.ACCOUNT}>Account</Link>
+      </li>
+      <li>
+        <SignOutButton />
       </li>
     </ul>
   </div>
