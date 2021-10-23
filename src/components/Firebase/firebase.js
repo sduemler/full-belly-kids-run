@@ -1,6 +1,6 @@
-import app from 'firebase/compat/app'
-import 'firebase/compat/database'
-import 'firebase/compat/auth';
+import app from "firebase/compat/app";
+import "firebase/compat/database";
+import "firebase/compat/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -10,7 +10,7 @@ const firebaseConfig = {
   databaseURL: process.env.REACT_APP_DATABASE_URL,
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT_ID
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
 class Firebase {
@@ -18,9 +18,8 @@ class Firebase {
     app.initializeApp(firebaseConfig);
 
     this.auth = app.auth();
-    this.db = app.database()
+    this.db = app.database();
   }
-
 
   // *** Auth API ***
   doCreateUserWithEmailAndPassword = (email, password) =>
@@ -28,15 +27,16 @@ class Firebase {
 
   doSignInWithEmailandPassword = (email, password) =>
     this.auth.signInWithEmailAndPassword(email, password);
-    
+
   doSignOut = () => this.auth.signOut();
 
-  doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
+  doPasswordReset = (email) => this.auth.sendPasswordResetEmail(email);
 
-  doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
+  doPasswordUpdate = (password) =>
+    this.auth.currentUser.updatePassword(password);
 
   // *** DB API ***
-  info = () => this.db.ref('2021');
+  info = () => this.db.ref("2021");
 }
 
 export default Firebase;

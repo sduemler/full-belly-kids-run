@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import * as ROUTERS from './routes';
+import * as ROUTERS from "./routes";
 
 const Navigation = () => (
   <div>
