@@ -2,14 +2,14 @@ import app from 'firebase/compat/app'
 import 'firebase/compat/database'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBmQEGROqUSYkHzHmegUAj1TNrXf956DL8",
-  authDomain: "full-belly-kids-run.firebaseapp.com",
-  projectId: "full-belly-kids-run",
-  storageBucket: "full-belly-kids-run.appspot.com",
-  databaseURL: "https://full-belly-kids-run-default-rtdb.firebaseio.com",
-  messagingSenderId: "615172825869",
-  appId: "1:615172825869:web:c5cee1305c58d6e02f4644",
-  measurementId: "G-KBXP35DWLT"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
 class Firebase {

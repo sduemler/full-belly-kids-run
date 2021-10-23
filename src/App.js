@@ -8,26 +8,10 @@ function App() {
   return (
     <div className='App'>
         <header>
-            <div className='wrapper'>
+            <div className='wrapper' style={{textAlign: "center"}}>
               <h1>Full Belly 5K Kids</h1>
-              
             </div>
         </header>
-        {/* <div className='container'>
-          <section className='add-item'>
-              <form>
-                <input type="text" name="username" placeholder="What's your name?" />
-                <input type="text" name="currentItem" placeholder="What are you bringing?" />
-                <button>Add Item</button>
-              </form>
-          </section>
-          <section className='display-item'>
-            <div className='wrapper'>
-              <ul>
-              </ul>
-            </div>
-          </section>
-        </div> */}
         <div className='container'>
           <section className='all-items'>
             <FirebaseContext.Consumer>
