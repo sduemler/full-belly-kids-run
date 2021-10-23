@@ -10,13 +10,13 @@ const Navigation = () => (
         <Link to={ROUTERS.SIGN_IN}>Sign In</Link>
       </li>
       <li>
+        <Link to={ROUTERS.SIGN_UP}>Sign Up</Link>
+      </li>
+      <li>
         <Link to={ROUTERS.ACTIVITIES}>Activities</Link>
       </li>
       <li>
         <Link to={ROUTERS.ACCOUNT}>Account</Link>
-      </li>
-      <li>
-        <Link to={ROUTERS.ADMIN}>Admin</Link>
       </li>
     </ul>
   </div>
