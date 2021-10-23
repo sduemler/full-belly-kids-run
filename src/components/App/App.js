@@ -1,6 +1,6 @@
 import './App.css';
-import ActivityList from './components/Activities/ActivityList';
-import { FirebaseContext } from './components/Firebase';
+import ActivityList from '../Activities/ActivityList';
+import { FirebaseContext } from '../Firebase';
 
 
 
