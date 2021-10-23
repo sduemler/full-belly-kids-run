@@ -22,7 +22,7 @@ class ActivityList extends Component {
     console.log(this.state)
     return (
       <div>
-        <Card.Group>
+        <Card.Group centered>
           {this.state.activities.map((activity) => 
             <ActivityCard key={activity} activityDesc={activity} />
           )}
