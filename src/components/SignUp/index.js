@@ -111,13 +111,15 @@ class SignUpFormBase extends Component {
               type='submit'
               content='Sign Up'
             />
-            {error && (
-              <Message
-                color='red'
-                header='Sign Up Error'
-                content={error.message}
-              />
-            )}
+            <Form.Field>
+              {error && (
+                <Message
+                  color='red'
+                  header='Sign Up Error'
+                  content={error.message.slice(10).split('(')[0]}
+                />
+              )}
+            </Form.Field>
           </Form>
         </Segment>
       </Container>

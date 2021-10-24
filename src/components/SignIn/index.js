@@ -60,67 +60,75 @@ class SignInFormBase extends Component {
     return (
       <Container>
         <Segment placeholder>
-          <Grid columns={2} relaxed='very' stackable>
-            <Grid.Column>
-              <Form onSubmit={this.onSubmit}>
-                <Form.Field>
-                  <Form.Input
-                    label='Username'
-                    name='email'
-                    value={email}
-                    onChange={this.onChange}
-                    type='text'
-                    placeholder='Email Address'
-                    icon='user'
-                    iconPosition='left'
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <Form.Input
-                    label='Password'
-                    name='password'
-                    value={password}
-                    onChange={this.onChange}
-                    type='password'
-                    placeholder='Password'
-                    icon='lock'
-                    iconPosition='left'
-                  />
-                  <Form.Button
-                    primary
-                    disabled={isInvalid}
-                    type='submit'
-                    content='Login'
-                  />
-                  {error && (
-                    <Message
-                      color='red'
-                      header='Sign In Error'
-                      content={error.message}
+          <Grid relaxed='very' stackable>
+            <Grid.Row>
+              <Grid.Column>
+                <Form onSubmit={this.onSubmit}>
+                  <Form.Field>
+                    <Form.Input
+                      label='Username'
+                      name='email'
+                      value={email}
+                      onChange={this.onChange}
+                      type='text'
+                      placeholder='Email Address'
+                      icon='user'
+                      iconPosition='left'
                     />
-                  )}
-                </Form.Field>
+                  </Form.Field>
+                  <Form.Field>
+                    <Form.Input
+                      label='Password'
+                      name='password'
+                      value={password}
+                      onChange={this.onChange}
+                      type='password'
+                      placeholder='Password'
+                      icon='lock'
+                      iconPosition='left'
+                    />
+                    <Form.Button
+                      primary
+                      disabled={isInvalid}
+                      type='submit'
+                      content='Login'
+                    />
+                  </Form.Field>
+                  <Form.Field>
+                    <Button
+                      as={Link}
+                      to={ROUTES.PASSWORD_FORGET}
+                      secondary
+                      content='Forgot Password?'
+                    />
+                  </Form.Field>
+                  <Form.Field>
+                    {error && (
+                      <Message
+                        color='red'
+                        header='Sign In Error'
+                        content={error.message.slice(10).split('(')[0]}
+                      />
+                    )}
+                  </Form.Field>
+                </Form>
+              </Grid.Column>
+            </Grid.Row>
+
+            <Divider horizontal>OR</Divider>
+
+            <Grid.Row>
+              <Grid.Column verticalAlign='middle'>
                 <Button
                   as={Link}
-                  to={ROUTES.PASSWORD_FORGET}
-                  secondary
-                  content='Forgot Password?'
+                  to={ROUTES.SIGN_UP}
+                  content='Sign Up'
+                  icon='signup'
+                  size='big'
                 />
-              </Form>
-            </Grid.Column>
-
-            <Grid.Column verticalAlign='middle'>
-              <Button
-                as={Link}
-                to={ROUTES.SIGN_UP}
-                content='Sign Up'
-                icon='signup'
-                size='big'
-              />
-            </Grid.Column>
+              </Grid.Column>
+            </Grid.Row>
           </Grid>
-
-          <Divider vertical>OR</Divider>
         </Segment>
       </Container>
     );

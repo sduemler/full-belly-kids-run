@@ -32,7 +32,7 @@ const ActivityCard = (props) => {
       </Card.Content>
       <Card.Content extra>
         <Button positive fluid>
-          Completed!
+          Complete Task
         </Button>
       </Card.Content>
     </Card>

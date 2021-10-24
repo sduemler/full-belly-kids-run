@@ -69,8 +69,8 @@ class PasswordForgetFormBase extends Component {
               {error && (
                 <Message
                   color='red'
-                  header='Sign In Error'
-                  content={error.message}
+                  header='Reset Password Error'
+                  content={error.message.slice(10).split('(')[0]}
                 />
               )}
             </Form.Field>

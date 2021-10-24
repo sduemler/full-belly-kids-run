@@ -27,7 +27,7 @@ class NavigationAuth extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Menu stackable>
+      <Menu inverted stackable>
         <Menu.Item
           as={Link}
           to={ROUTES.ACTIVITIES}
