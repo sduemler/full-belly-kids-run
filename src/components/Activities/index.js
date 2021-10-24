@@ -12,8 +12,8 @@ class ActivityList extends Component {
   }
 
   componentDidMount() {
-    this.props.firebase.info().on('value', (snapshot) => {
-      const actList = snapshot.val().Activities.slice(1);
+    this.props.firebase.activities().on('value', (snapshot) => {
+      const actList = snapshot.val();
       this.setState({
         activities: actList ?? [],
       });
@@ -24,8 +24,11 @@ class ActivityList extends Component {
     return (
       <div>
         <Card.Group centered>
-          {this.state.activities.map((activity) => (
-            <ActivityCard key={activity} activityDesc={activity} />
+          {Object.keys(this.state.activities).map((activity) => (
+            <ActivityCard
+              key={activity}
+              activityDesc={this.state.activities[activity].name}
+            />
           ))}
         </Card.Group>
       </div>
