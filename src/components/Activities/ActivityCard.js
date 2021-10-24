@@ -36,6 +36,7 @@ const ActivityCard = (props) => {
       </Card.Content>
       <Card.Content extra>
         <Button
+          disabled={props.completed}
           positive
           fluid
           onClick={() => props.handleComplete(props.activityKey)}>
