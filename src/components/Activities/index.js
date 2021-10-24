@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ActivityCard from './ActivityCard';
 import { Card } from 'semantic-ui-react';
 import { withFirebase } from '../Firebase';
+import { withAuthorization } from '../Session';
 
 class ActivityList extends Component {
   constructor(props) {
@@ -20,7 +21,6 @@ class ActivityList extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <Card.Group centered>
@@ -33,4 +33,6 @@ class ActivityList extends Component {
   }
 }
 
-export default withFirebase(ActivityList);
+const condition = (authUser) => !!authUser;
+
+export default withAuthorization(condition)(withFirebase(ActivityList));
