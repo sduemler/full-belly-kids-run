@@ -27,14 +27,15 @@ class ActivityList extends Component {
   }
 
   handleCompleteClick = (actKey) => {
-    console.log(this.state);
     const user = this.props.firebase.auth.currentUser;
     let userActivityList = this.state.userActivities;
-    userActivityList.push(actKey);
-    this.setState({
-      userActivities: userActivityList,
-    });
-    this.props.firebase.updateActivity(this.state.userActivities, user.uid);
+    if (!userActivityList.includes(actKey)) {
+      userActivityList.push(actKey);
+      this.setState({
+        userActivities: userActivityList,
+      });
+      this.props.firebase.updateActivity(this.state.userActivities, user.uid);
+    }
   };
 
   render() {
@@ -46,6 +47,7 @@ class ActivityList extends Component {
               key={activity}
               activityDesc={this.state.activities[activity].name}
               activityKey={activity}
+              completed={this.state.userActivities.includes(activity)}
               handleComplete={this.handleCompleteClick}
             />
           ))}
