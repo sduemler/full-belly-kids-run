@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
-import { SignUpLink } from '../SignUp';
-import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../Navigation/routes';
 import {
@@ -88,7 +86,7 @@ class SignInFormBase extends Component {
                     icon='lock'
                     iconPosition='left'
                   />
-                  <Button
+                  <Form.Button
                     primary
                     disabled={isInvalid}
                     type='submit'

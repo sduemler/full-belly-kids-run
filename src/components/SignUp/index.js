@@ -4,9 +4,11 @@ import { withFirebase } from '../Firebase';
 
 import * as ROUTES from '../Navigation/routes';
 
+import { Form, Message, Container, Segment } from 'semantic-ui-react';
+
 const SignUpPage = () => (
   <div>
-    <h1>SignUp</h1>
+    <h1 style={{ textAlign: 'center' }}>Sign Up</h1>
     <SignUpForm />
   </div>
 );
@@ -60,41 +62,61 @@ class SignUpFormBase extends Component {
       username === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name='username'
-          value={username}
-          onChange={this.onChange}
-          type='text'
-          placeholder='Full Name'
-        />
-        <input
-          name='email'
-          value={email}
-          onChange={this.onChange}
-          type='text'
-          placeholder='Email Address'
-        />
-        <input
-          name='passwordOne'
-          value={passwordOne}
-          onChange={this.onChange}
-          type='password'
-          placeholder='Password'
-        />
-        <input
-          name='passwordTwo'
-          value={passwordTwo}
-          onChange={this.onChange}
-          type='password'
-          placeholder='Confirm Password'
-        />
-        <button disabled={isInvalid} type='submit'>
-          Sign Up
-        </button>
-
-        {error && <p>{error.message}</p>}
-      </form>
+      <Container>
+        <Segment placeholder>
+          <Form onSubmit={this.onSubmit}>
+            <Form.Input
+              label='Username'
+              name='username'
+              value={username}
+              onChange={this.onChange}
+              type='text'
+              placeholder='Full Name'
+              icon='user'
+              iconPosition='left'
+            />
+            <Form.Input
+              label='Email Address'
+              name='email'
+              value={email}
+              onChange={this.onChange}
+              type='text'
+              placeholder='Email Address'
+              icon='mail'
+              iconPosition='left'
+            />
+            <Form.Input
+              label='Password'
+              name='passwordOne'
+              value={passwordOne}
+              onChange={this.onChange}
+              type='password'
+              placeholder='Password'
+              icon='lock'
+              iconPosition='left'
+            />
+            <Form.Input
+              label='Confirm Password'
+              name='passwordTwo'
+              value={passwordTwo}
+              onChange={this.onChange}
+              type='password'
+              placeholder='Confirm Password'
+              icon='lock'
+              iconPosition='left'
+            />
+            <Form.Button
+              primary
+              disabled={isInvalid}
+              type='submit'
+              content='Sign Up'
+            />
+            {error && (
+              <Message header='Sign Up Error' content={error.message} />
+            )}
+          </Form>
+        </Segment>
+      </Container>
     );
   }
 }
