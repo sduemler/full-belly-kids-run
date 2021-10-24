@@ -112,7 +112,11 @@ class SignUpFormBase extends Component {
               content='Sign Up'
             />
             {error && (
-              <Message header='Sign Up Error' content={error.message} />
+              <Message
+                color='red'
+                header='Sign Up Error'
+                content={error.message}
+              />
             )}
           </Form>
         </Segment>

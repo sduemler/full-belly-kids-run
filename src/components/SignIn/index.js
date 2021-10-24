@@ -93,19 +93,30 @@ class SignInFormBase extends Component {
                     content='Login'
                   />
                   {error && (
-                    <Message header='Sign In Error' content={error.message} />
+                    <Message
+                      color='red'
+                      header='Sign In Error'
+                      content={error.message}
+                    />
                   )}
                 </Form.Field>
-                <Link to={ROUTES.PASSWORD_FORGET}>
-                  <Button secondary content='Forgot Password?' />
-                </Link>
+                <Button
+                  as={Link}
+                  to={ROUTES.PASSWORD_FORGET}
+                  secondary
+                  content='Forgot Password?'
+                />
               </Form>
             </Grid.Column>
 
             <Grid.Column verticalAlign='middle'>
-              <Link to={ROUTES.SIGN_UP}>
-                <Button content='Sign Up' icon='signup' size='big' />
-              </Link>
+              <Button
+                as={Link}
+                to={ROUTES.SIGN_UP}
+                content='Sign Up'
+                icon='signup'
+                size='big'
+              />
             </Grid.Column>
           </Grid>
 
