@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Image, Button } from 'semantic-ui-react';
+import { withFirebase } from '../Firebase';
 import runningImage from '../../resources/images/running-outside.jpg';
 // import quality from '../../resources/images/quality.png'
 
@@ -18,6 +19,7 @@ const ActivityCard = (props) => {
     'brown',
     'grey',
   ];
+
   return (
     <Card color={colors[Math.floor(Math.random() * (colors.length - 1))]}>
       <Image src={runningImage} wrapped ui={false} />
@@ -31,7 +33,10 @@ const ActivityCard = (props) => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Button positive fluid>
+        <Button
+          positive
+          fluid
+          onClick={() => props.handleComplete(props.activityKey)}>
           Complete Task
         </Button>
       </Card.Content>
@@ -39,4 +44,4 @@ const ActivityCard = (props) => {
   );
 };
 
-export default ActivityCard;
+export default withFirebase(ActivityCard);

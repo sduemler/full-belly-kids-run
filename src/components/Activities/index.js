@@ -8,17 +8,34 @@ class ActivityList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { activities: [] };
+    this.state = { activities: [], userActivities: [] };
   }
 
   componentDidMount() {
+    const user = this.props.firebase.auth.currentUser;
     this.props.firebase.activities().on('value', (snapshot) => {
       const actList = snapshot.val();
       this.setState({
         activities: actList ?? [],
       });
     });
+    this.props.firebase.user(user.uid).on('value', (snapshot) => {
+      this.setState({
+        userActivities: snapshot.val().completedActivities ?? [],
+      });
+    });
   }
+
+  handleCompleteClick = (actKey) => {
+    console.log(this.state);
+    const user = this.props.firebase.auth.currentUser;
+    let userActivityList = this.state.userActivities;
+    userActivityList.push(actKey);
+    this.setState({
+      userActivities: userActivityList,
+    });
+    this.props.firebase.updateActivity(this.state.userActivities, user.uid);
+  };
 
   render() {
     return (
@@ -28,6 +45,8 @@ class ActivityList extends Component {
             <ActivityCard
               key={activity}
               activityDesc={this.state.activities[activity].name}
+              activityKey={activity}
+              handleComplete={this.handleCompleteClick}
             />
           ))}
         </Card.Group>

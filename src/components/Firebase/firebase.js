@@ -40,7 +40,10 @@ class Firebase {
 
   user = (uid) => this.db.ref(`users/${uid}`);
 
-  users = () => this.db.red('users');
+  users = () => this.db.ref('users');
+
+  updateActivity = (activityList, uid) =>
+    this.db.ref(`users/${uid}/completedActivities`).set(activityList);
 }
 
 export default Firebase;
