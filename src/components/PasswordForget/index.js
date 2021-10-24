@@ -3,15 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../Navigation/routes';
-import {
-  Form,
-  Button,
-  Message,
-  Container,
-  Segment,
-  Divider,
-  Grid,
-} from 'semantic-ui-react';
+import { Form, Message, Container, Segment, Header } from 'semantic-ui-react';
 
 const PasswordForgetPage = () => (
   <div>
@@ -60,6 +52,7 @@ class PasswordForgetFormBase extends Component {
       <Container>
         <Segment placeholder>
           <Form onSubmit={this.onSubmit}>
+            <Header as='h2'>Reset Password</Header>
             <Form.Input
               name='email'
               value={this.state.email}

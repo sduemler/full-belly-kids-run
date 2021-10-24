@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import ActivityList from '../Activities/index.js';
 import Navigation from '../Navigation';
 import * as ROUTES from '../Navigation/routes';
@@ -21,6 +21,9 @@ const App = () => (
       <div>
         <Navigation />
         <hr />
+        <Route exact path='/'>
+          <Redirect to={ROUTES.SIGN_IN} />
+        </Route>
         <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
         <Route path={ROUTES.SIGN_IN} component={SignInPage} />
         <Route path={ROUTES.ACTIVITIES} component={ActivityList} />
