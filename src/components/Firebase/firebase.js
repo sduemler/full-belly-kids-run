@@ -1,6 +1,6 @@
-import app from "firebase/compat/app";
-import "firebase/compat/database";
-import "firebase/compat/auth";
+import app from 'firebase/compat/app';
+import 'firebase/compat/database';
+import 'firebase/compat/auth';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -36,7 +36,11 @@ class Firebase {
     this.auth.currentUser.updatePassword(password);
 
   // *** DB API ***
-  info = () => this.db.ref("2021");
+  info = () => this.db.ref('2021');
+
+  user = (uid) => this.db.ref(`users/${uid}`);
+
+  users = () => this.db.red('users');
 }
 
 export default Firebase;
