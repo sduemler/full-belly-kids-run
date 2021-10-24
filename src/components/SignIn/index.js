@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../Navigation/routes';
+import {
+  Form,
+  Button,
+  Message,
+  Container,
+  Segment,
+  Divider,
+  Grid,
+} from 'semantic-ui-react';
 
 const SignInPage = () => (
   <div>
-    <h1>SignIn</h1>
     <SignInForm />
-    <PasswordForgetLink />
-    <SignUpLink />
   </div>
 );
 
@@ -35,7 +41,7 @@ class SignInFormBase extends Component {
       .doSignInWithEmailandPassword(email, password)
       .then(() => {
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push(ROUTES.HOME);
+        this.props.history.push(ROUTES.ACTIVITIES);
       })
       .catch((error) => {
         this.setState({ error });
@@ -54,27 +60,60 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name='email'
-          value={email}
-          onChange={this.onChange}
-          type='text'
-          placeholder='Email Address'
-        />
-        <input
-          name='password'
-          value={password}
-          onChange={this.onChange}
-          type='password'
-          placeholder='Password'
-        />
-        <button disabled={isInvalid} type='submit'>
-          Sign In
-        </button>
+      <Container>
+        <Segment placeholder>
+          <Grid columns={2} relaxed='very' stackable>
+            <Grid.Column>
+              <Form onSubmit={this.onSubmit}>
+                <Form.Field>
+                  <Form.Input
+                    label='Username'
+                    name='email'
+                    value={email}
+                    onChange={this.onChange}
+                    type='text'
+                    placeholder='Email Address'
+                    icon='user'
+                    iconPosition='left'
+                  />
+                </Form.Field>
+                <Form.Field>
+                  <Form.Input
+                    label='Password'
+                    name='password'
+                    value={password}
+                    onChange={this.onChange}
+                    type='password'
+                    placeholder='Password'
+                    icon='lock'
+                    iconPosition='left'
+                  />
+                  <Button
+                    primary
+                    disabled={isInvalid}
+                    type='submit'
+                    content='Login'
+                  />
+                  {error && (
+                    <Message header='Sign In Error' content={error.message} />
+                  )}
+                </Form.Field>
+                <Link to={ROUTES.PASSWORD_FORGET}>
+                  <Button secondary content='Forgot Password?' />
+                </Link>
+              </Form>
+            </Grid.Column>
 
-        {error && <p>{error.message}</p>}
-      </form>
+            <Grid.Column verticalAlign='middle'>
+              <Link to={ROUTES.SIGN_UP}>
+                <Button content='Sign Up' icon='signup' size='big' />
+              </Link>
+            </Grid.Column>
+          </Grid>
+
+          <Divider vertical>OR</Divider>
+        </Segment>
+      </Container>
     );
   }
 }
