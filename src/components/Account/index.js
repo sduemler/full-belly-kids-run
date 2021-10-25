@@ -6,7 +6,7 @@ import { PasswordForgetForm } from '../PasswordForget';
 const AccountPage = () => (
   <AuthUserContext.Consumer>
     {(authUser) => (
-      <div>
+      <div style={{ textAlign: ['center'] }}>
         <h1>Account: {authUser.email}</h1>
         <PasswordForgetForm />
       </div>

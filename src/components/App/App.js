@@ -9,6 +9,7 @@ import SignInPage from '../SignIn';
 import { withAuthentication } from '../Session';
 import PasswordForgetPage from '../PasswordForget';
 import AccountPage from '../Account';
+import { Divider } from 'semantic-ui-react';
 
 const App = () => (
   <div className='App'>
@@ -20,7 +21,7 @@ const App = () => (
     <Router>
       <div>
         <Navigation />
-        <hr />
+        <Divider hidden />
         <Route exact path='/'>
           <Redirect to={ROUTES.SIGN_IN} />
         </Route>

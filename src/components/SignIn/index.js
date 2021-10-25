@@ -72,7 +72,7 @@ class SignInFormBase extends Component {
                       onChange={this.onChange}
                       type='text'
                       placeholder='Email Address'
-                      icon='user'
+                      icon='mail'
                       iconPosition='left'
                     />
                   </Form.Field>
