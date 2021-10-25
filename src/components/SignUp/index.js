@@ -4,7 +4,7 @@ import { withFirebase } from '../Firebase';
 
 import * as ROUTES from '../Navigation/routes';
 
-import { Form, Message, Container, Segment } from 'semantic-ui-react';
+import { Form, Message, Container, Segment, Checkbox } from 'semantic-ui-react';
 
 const SignUpPage = () => (
   <div>
@@ -18,6 +18,7 @@ const INITIAL_STATE = {
   email: '',
   passwordOne: '',
   passwordTwo: '',
+  legalCheck: false,
   error: null,
 };
 
@@ -52,14 +53,19 @@ class SignUpFormBase extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  toggle = () =>
+    this.setState((prevState) => ({ legalCheck: !prevState.legalCheck }));
+
   render() {
-    const { username, email, passwordOne, passwordTwo, error } = this.state;
+    const { username, email, passwordOne, passwordTwo, legalCheck, error } =
+      this.state;
 
     const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === '' ||
       email === '' ||
-      username === '';
+      username === '' ||
+      legalCheck === false;
 
     return (
       <Container>
@@ -105,6 +111,13 @@ class SignUpFormBase extends Component {
               icon='lock'
               iconPosition='left'
             />
+            <Form.Field>
+              <Checkbox
+                label='I have permission from parent/legal guardian to participate.'
+                checked={legalCheck}
+                onChange={this.toggle}
+              />
+            </Form.Field>
             <Form.Button
               primary
               disabled={isInvalid}

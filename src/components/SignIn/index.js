@@ -66,7 +66,7 @@ class SignInFormBase extends Component {
                 <Form onSubmit={this.onSubmit}>
                   <Form.Field>
                     <Form.Input
-                      label='Username'
+                      label='Email'
                       name='email'
                       value={email}
                       onChange={this.onChange}
