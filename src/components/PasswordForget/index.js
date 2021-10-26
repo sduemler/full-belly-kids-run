@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../resources/constants/routes';
+import * as ERRORS from '../../resources/constants/errors';
 import { Form, Message, Container, Segment, Header } from 'semantic-ui-react';
 
 const PasswordForgetPage = () => (
@@ -69,7 +70,9 @@ class PasswordForgetFormBase extends Component {
                 <Message
                   color='red'
                   header='Reset Password Error'
-                  content={error.message.slice(10).split('(')[0]}
+                  content={
+                    ERRORS.errorMap[error.message.split('(')[1].split(')')[0]]
+                  }
                 />
               )}
             </Form.Field>

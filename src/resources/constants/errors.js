@@ -28,7 +28,7 @@ export const errorMap = {
     'Something went wrong on our side. Please try again later.',
   'auth/invalid-password': 'Login or password is invalid.',
   'auth/wrong-password': 'Login or password is invalid.',
-  'auth/invalid-email': 'Login or password is invalid.',
+  'auth/invalid-email': 'Please input a valid email addresss.',
   'auth/weak-password': 'Your password needs to be at least 6 characters.',
   'auth/too-many-requests':
     'You have tried to log in too many times, please try again later.',
