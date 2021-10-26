@@ -34,18 +34,24 @@ class SignInFormBase extends Component {
 
   onSubmit = (event) => {
     const { email, password } = this.state;
-
-    this.props.firebase
-      .doSignInWithEmailandPassword(email, password)
+    this.props.firebase.auth.app.firebase
+      .auth()
+      .setPersistence(
+        this.props.firebase.auth.app.firebase.auth.Auth.Persistence.SESSION
+      )
       .then(() => {
-        this.setState({ ...INITIAL_STATE });
-        this.props.history.push(ROUTES.ACTIVITIES);
-      })
-      .catch((error) => {
-        this.setState({ error });
-      });
+        this.props.firebase
+          .doSignInWithEmailandPassword(email, password)
+          .then(() => {
+            this.setState({ ...INITIAL_STATE });
+            this.props.history.push(ROUTES.ACTIVITIES);
+          })
+          .catch((error) => {
+            this.setState({ error });
+          });
 
-    event.preventDefault();
+        event.preventDefault();
+      });
   };
 
   onChange = (event) => {

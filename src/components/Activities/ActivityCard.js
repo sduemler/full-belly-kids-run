@@ -27,7 +27,7 @@ const ActivityCard = (props) => {
       <Image src={runningImage} ui={false} size='tiny' />
       <Card.Content>
         {props.completed && (
-          <Card.Header>
+          <Card.Header style={{ textAlign: 'center' }}>
             Activity Completed!
             <Image src={quality} size='mini' />
           </Card.Header>
