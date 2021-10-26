@@ -20,13 +20,15 @@ const ActivityCard = (props) => {
     'grey',
   ];
 
+  const completed = props.completed;
+
   return (
     <Card color={colors[Math.floor(Math.random() * (colors.length - 1))]}>
       <Image src={runningImage} wrapped ui={false} />
       <Card.Content>
         {props.completed && (
           <Card.Header>
-            Task Completed!
+            Activity Completed!
             <Image src={quality} size='mini' />
           </Card.Header>
         )}
@@ -35,13 +37,21 @@ const ActivityCard = (props) => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Button
-          disabled={props.completed}
-          positive
-          fluid
-          onClick={() => props.handleComplete(props.activityKey)}>
-          Complete Task
-        </Button>
+        {!completed ? (
+          <Button
+            fluid
+            positive
+            onClick={() => props.handleComplete(props.activityKey)}>
+            Complete Activity
+          </Button>
+        ) : (
+          <Button
+            fluid
+            negative
+            onClick={() => props.handleReset(props.activityKey)}>
+            Reset Activity
+          </Button>
+        )}
       </Card.Content>
     </Card>
   );

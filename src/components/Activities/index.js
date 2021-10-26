@@ -13,7 +13,7 @@ class ActivityList extends Component {
 
   componentDidMount() {
     const user = this.props.firebase.auth.currentUser;
-    this.props.firebase.activities().on('value', (snapshot) => {
+    this.listener = this.props.firebase.activities().on('value', (snapshot) => {
       const actList = snapshot.val();
       this.setState({
         activities: actList ?? [],
@@ -26,15 +26,28 @@ class ActivityList extends Component {
     });
   }
 
+  //TODO complete the unmounting of the listener
+  // componentWillUnmount() {
+  //   this.listener.off();
+  // }
+
   handleCompleteClick = (actKey) => {
     const user = this.props.firebase.auth.currentUser;
     let userActivityList = this.state.userActivities;
     if (!userActivityList.includes(actKey)) {
       userActivityList.push(actKey);
-      this.setState({
-        userActivities: userActivityList,
+      this.props.firebase.updateActivity(userActivityList, user.uid);
+    }
+  };
+
+  handleResetClick = (actKey) => {
+    const user = this.props.firebase.auth.currentUser;
+    let userActivityList = this.state.userActivities;
+    if (userActivityList.includes(actKey)) {
+      let filteredList = userActivityList.filter(function (value, index, arr) {
+        return value !== actKey;
       });
-      this.props.firebase.updateActivity(this.state.userActivities, user.uid);
+      this.props.firebase.updateActivity(filteredList, user.uid);
     }
   };
 
@@ -49,6 +62,7 @@ class ActivityList extends Component {
               activityKey={activity}
               completed={this.state.userActivities.includes(activity)}
               handleComplete={this.handleCompleteClick}
+              handleReset={this.handleResetClick}
             />
           ))}
         </Card.Group>
