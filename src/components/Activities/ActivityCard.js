@@ -24,7 +24,7 @@ const ActivityCard = (props) => {
 
   return (
     <Card color={colors[Math.floor(Math.random() * (colors.length - 1))]}>
-      <Image src={runningImage} wrapped ui={false} />
+      <Image src={runningImage} ui={false} size='tiny' />
       <Card.Content>
         {props.completed && (
           <Card.Header>

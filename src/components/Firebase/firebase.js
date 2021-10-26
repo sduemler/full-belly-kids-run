@@ -1,6 +1,7 @@
 import app from 'firebase/compat/app';
 import 'firebase/compat/database';
 import 'firebase/compat/auth';
+import 'firebase/compat/storage';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -19,6 +20,7 @@ class Firebase {
 
     this.auth = app.auth();
     this.db = app.database();
+    this.storage = app.storage();
   }
 
   // *** Auth API ***
@@ -44,6 +46,9 @@ class Firebase {
 
   updateActivity = (activityList, uid) =>
     this.db.ref(`users/${uid}/completedActivities`).set(activityList);
+
+  getImageUrl = (imageUrl) =>
+    this.storage.refFromURL(imageUrl).getDownloadURL();
 }
 
 export default Firebase;
