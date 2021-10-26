@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import { withFirebase } from '../Firebase';
-import * as ROUTES from '../Navigation/routes';
+import * as ROUTES from '../../resources/constants/routes';
 import { Form, Message, Container, Segment, Header } from 'semantic-ui-react';
 
 const PasswordForgetPage = () => (
-  <div>
-    <h1>PasswordForget</h1>
+  <div style={{ textAlign: 'center' }}>
     <PasswordForgetForm />
   </div>
 );

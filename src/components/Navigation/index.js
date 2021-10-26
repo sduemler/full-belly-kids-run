@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import SignOutButton from '../SignOut';
-import * as ROUTES from './routes';
+import * as ROUTES from '../../resources/constants/routes';
 import { AuthUserContext } from '../Session';
 import { Menu, Button } from 'semantic-ui-react';
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 
-import * as ROUTES from '../Navigation/routes';
+import * as ROUTES from '../../resources/constants/routes';
 
 import { Form, Message, Container, Segment, Checkbox } from 'semantic-ui-react';
 

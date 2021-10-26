@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ActivityList from '../Activities/index.js';
 import Navigation from '../Navigation';
-import * as ROUTES from '../Navigation/routes';
+import * as ROUTES from '../../resources/constants/routes';
 import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
 import { withAuthentication } from '../Session';
