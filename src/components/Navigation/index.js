@@ -28,25 +28,27 @@ class NavigationAuth extends Component {
 
     return (
       <Menu inverted stackable>
-        <Menu.Item
-          as={Link}
-          to={ROUTES.ACTIVITIES}
-          name='activities'
-          active={activeItem === 'activities'}
-          onClick={this.handleItemClick}>
-          Activities
-        </Menu.Item>
-        <Menu.Item
-          as={Link}
-          to={ROUTES.ACCOUNT}
-          name='account'
-          active={activeItem === 'account'}
-          onClick={this.handleItemClick}>
-          Account
-        </Menu.Item>
-        <Menu.Item position='right'>
-          <SignOutButton />
-        </Menu.Item>
+        <Menu.Menu position='right'>
+          <Menu.Item
+            as={Link}
+            to={ROUTES.ACTIVITIES}
+            name='activities'
+            active={activeItem === 'activities'}
+            onClick={this.handleItemClick}>
+            Activities
+          </Menu.Item>
+          <Menu.Item
+            as={Link}
+            to={ROUTES.ACCOUNT}
+            name='account'
+            active={activeItem === 'account'}
+            onClick={this.handleItemClick}>
+            Account
+          </Menu.Item>
+          <Menu.Item position='right'>
+            <SignOutButton />
+          </Menu.Item>
+        </Menu.Menu>
       </Menu>
     );
   }
