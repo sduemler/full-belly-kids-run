@@ -13,7 +13,7 @@ class ActivityList extends Component {
 
   componentDidMount() {
     const user = this.props.firebase.auth.currentUser;
-    this.listener = this.props.firebase.activities().on('value', (snapshot) => {
+    this.props.firebase.activities().on('value', (snapshot) => {
       const actList = snapshot.val();
       // for (let key in actList) {
       //   this.props.firebase.getImageUrl(actList[key].imageUrl).then((url) => {
@@ -31,10 +31,10 @@ class ActivityList extends Component {
     });
   }
 
-  //TODO complete the unmounting of the listener
-  // componentWillUnmount() {
-  //   this.listener.off();
-  // }
+  componentWillUnmount() {
+    this.props.firebase.activities().off();
+    this.props.firebase.user().off();
+  }
 
   handleCompleteClick = (actKey) => {
     const user = this.props.firebase.auth.currentUser;
