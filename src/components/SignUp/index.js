@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 
 import * as ROUTES from '../../resources/constants/routes';
+import * as ERRORS from '../../resources/constants/errors';
 
 import { Form, Message, Container, Segment, Checkbox } from 'semantic-ui-react';
 
@@ -113,7 +114,7 @@ class SignUpFormBase extends Component {
             />
             <Form.Field>
               <Checkbox
-                label='I have permission from parent/legal guardian to participate.'
+                label='I have permission from my parent/legal guardian to participate.'
                 checked={legalCheck}
                 onChange={this.toggle}
               />
@@ -129,7 +130,9 @@ class SignUpFormBase extends Component {
                 <Message
                   color='red'
                   header='Sign Up Error'
-                  content={error.message.slice(10).split('(')[0]}
+                  content={
+                    ERRORS.errorMap[error.message.split('(')[1].split(')')[0]]
+                  }
                 />
               )}
             </Form.Field>
