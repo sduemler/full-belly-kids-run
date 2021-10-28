@@ -47,6 +47,14 @@ class Firebase {
   updateActivity = (activityList, uid) =>
     this.db.ref(`users/${uid}/completedActivities`).set(activityList);
 
+  updateTenActivitiesCompleted = (uid) => {
+    this.db.ref(`users/${uid}/tenActivitiesCompleted`).set(true);
+  };
+
+  updateAllActivitiesCompleted = (uid) => {
+    this.db.ref(`users/${uid}/allActivitiesCompleted`).set(true);
+  };
+
   getImageUrl = (imageUrl) =>
     this.storage.refFromURL(imageUrl).getDownloadURL();
 }

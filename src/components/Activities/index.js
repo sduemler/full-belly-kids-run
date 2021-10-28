@@ -50,9 +50,11 @@ class ActivityList extends Component {
     }
     if (userActivityList.length === 10) {
       this.setState({ tenActivitiesCompleted: true });
+      this.props.firebase.updateTenActivitiesCompleted(user.uid);
     }
     if (userActivityList.length === 16) {
       this.setState({ allActivitiesCompleted: true });
+      this.props.firebase.updateAllActivitiesCompleted(user.uid);
     }
   };
 
