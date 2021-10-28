@@ -1,13 +1,78 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Segment, Container, Header, Button, List } from 'semantic-ui-react';
+import * as ROUTES from '../../resources/constants/routes';
+import { AuthUserContext } from '../Session';
 
 const Landing = () => {
   return (
     <div>
-      <h1>This is the landing page!</h1>
-      <h2>
-        FYI for Rebecca and Bo, this is where the intro to the challenge, fun
-        run, and how to instructions will go.
-      </h2>
+      <Container>
+        <Segment>
+          <Container text>
+            <Header as='h2' textAlign='center'>
+              Introduction
+            </Header>
+            <p>
+              On Saturday, November 27 Friends of Shelby invites all kids 12
+              years old and under to join us for the Full Belly Fun Run - a
+              1-mile run, walk, or jog around beautiful Lake Sevier in Shelby
+              Park.
+            </p>
+            <p>
+              Friends of Shelby wants to encourage kids to get on their feet,
+              get outdoors, and get healthy. Thanks to support from East
+              Nashville Pediatric Dentistry, we have created the Youth Activity
+              Challenge, with 17 fun ways to get kids moving.
+            </p>
+            <p>
+              Register for free and log every activity you complete up until the
+              Wednesday before Thanksgiving – November 24. Complete 10
+              activities and get a certificate of achievement. Complete all 17
+              activities and get a free Full Belly Fun Run registration
+              including a race shirt.
+            </p>
+            <p>
+              It’s easy as:
+              <List ordered>
+                <List.Item>
+                  Get a parent’s permission and register for the Youth Activity
+                  Challenge
+                </List.Item>
+                <List.Item>
+                  Log every activity you complete on this website
+                </List.Item>
+                <List.Item>
+                  When you have completed all 17 activities you will be emailed
+                  a code to register for the Full Belly Fun Run!
+                </List.Item>
+              </List>
+            </p>
+            <p style={{ textAlign: 'center' }}>
+              <strong>Ready, Set, Get Active!</strong>
+            </p>
+            <AuthUserContext.Consumer>
+              {(authUser) =>
+                !authUser ? (
+                  <Container textAlign={'center'}>
+                    <Button.Group>
+                      <Button as={Link} to={ROUTES.SIGN_IN}>
+                        Sign In
+                      </Button>
+                      <Button.Or />
+                      <Button as={Link} to={ROUTES.SIGN_UP}>
+                        Sign Up
+                      </Button>
+                    </Button.Group>
+                  </Container>
+                ) : (
+                  <div></div>
+                )
+              }
+            </AuthUserContext.Consumer>
+          </Container>
+        </Segment>
+      </Container>
     </div>
   );
 };

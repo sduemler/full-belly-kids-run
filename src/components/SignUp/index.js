@@ -20,6 +20,8 @@ const INITIAL_STATE = {
   passwordOne: '',
   passwordTwo: '',
   legalCheck: false,
+  school: '',
+  grade: '',
   error: null,
 };
 
@@ -31,14 +33,14 @@ class SignUpFormBase extends Component {
   }
 
   onSubmit = (event) => {
-    const { username, email, passwordOne } = this.state;
+    const { username, email, passwordOne, school, grade } = this.state;
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then((authUser) => {
         return this.props.firebase
           .user(authUser.user.uid)
-          .set({ username, email });
+          .set({ username, email, school, grade });
       })
       .then((authUser) => {
         this.setState({ ...INITIAL_STATE });
@@ -58,8 +60,16 @@ class SignUpFormBase extends Component {
     this.setState((prevState) => ({ legalCheck: !prevState.legalCheck }));
 
   render() {
-    const { username, email, passwordOne, passwordTwo, legalCheck, error } =
-      this.state;
+    const {
+      username,
+      email,
+      school,
+      grade,
+      passwordOne,
+      passwordTwo,
+      legalCheck,
+      error,
+    } = this.state;
 
     const isInvalid =
       passwordOne !== passwordTwo ||
@@ -90,6 +100,26 @@ class SignUpFormBase extends Component {
               type='text'
               placeholder='Email Address'
               icon='mail'
+              iconPosition='left'
+            />
+            <Form.Input
+              label='School'
+              name='school'
+              value={school}
+              onChange={this.onChange}
+              type='text'
+              placeholder='School'
+              icon='building'
+              iconPosition='left'
+            />
+            <Form.Input
+              label='Grade'
+              name='grade'
+              value={grade}
+              onChange={this.onChange}
+              type='number'
+              placeholder='Grade'
+              icon='pencil alternate'
               iconPosition='left'
             />
             <Form.Input

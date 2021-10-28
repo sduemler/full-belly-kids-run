@@ -20,19 +20,23 @@ const App = () => (
         <h1>Full Belly 5K Kids</h1>
       </div>
     </header>
-    <Router>
-      <div>
-        <Navigation />
-        <Divider hidden />
-        <Route exact path={ROUTES.LANDING} component={LandingPage} />
-        <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-        <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-        <Route path={ROUTES.ACTIVITIES} component={ActivityList} />
-        <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-        <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-      </div>
-    </Router>
-    <Footer />
+    <div>
+      <Router>
+        <div>
+          <Navigation />
+          <Divider hidden />
+          <Route exact path={ROUTES.LANDING} component={LandingPage} />
+          <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+          <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+          <Route path={ROUTES.ACTIVITIES} component={ActivityList} />
+          <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+          <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+        </div>
+      </Router>
+    </div>
+    <div>
+      <Footer />
+    </div>
   </div>
 );
 

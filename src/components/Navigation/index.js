@@ -45,6 +45,14 @@ class NavigationAuth extends Component {
             onClick={this.handleItemClick}>
             Account
           </Menu.Item>
+          <Menu.Item
+            as={Link}
+            to={ROUTES.LANDING}
+            name='home'
+            active={activeItem === 'home'}
+            onClick={this.handleItemClick}>
+            Home
+          </Menu.Item>
           <Menu.Item position='right'>
             <SignOutButton />
           </Menu.Item>
@@ -56,9 +64,14 @@ class NavigationAuth extends Component {
 
 const NavigationNonAuth = () => (
   <Menu inverted stackable>
-    <Menu.Item name='signin' position='right'>
-      <Button as={Link} to={ROUTES.SIGN_IN} content='Sign In' />
-    </Menu.Item>
+    <Menu.Menu position='right'>
+      <Menu.Item as={Link} to={ROUTES.LANDING} name='home'>
+        Home
+      </Menu.Item>
+      <Menu.Item name='signin' position='right'>
+        <Button as={Link} to={ROUTES.SIGN_IN} content='Sign In' />
+      </Menu.Item>
+    </Menu.Menu>
   </Menu>
 );
 
