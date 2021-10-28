@@ -11,7 +11,7 @@ const Landing = () => {
         <Segment>
           <Container text>
             <Header as='h2' textAlign='center'>
-              Introduction
+              Full Belly Youth Activity Challenge
             </Header>
             <p>
               On Saturday, November 27 Friends of Shelby invites all kids 12
@@ -52,7 +52,7 @@ const Landing = () => {
                   Log every activity you complete on this website
                 </List.Item>
                 <List.Item>
-                  When you have completed all 17 activities you will be emailed
+                  When you have completed all 16 activities you will be emailed
                   a code to register for the Full Belly Fun Run!
                 </List.Item>
               </List>
