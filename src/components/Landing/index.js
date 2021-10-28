@@ -20,6 +20,12 @@ const Landing = () => {
               Park.
             </p>
             <p>
+              Race Signup Link:{' '}
+              <a href='https://runsignup.com/Race/TN/Nashville/FullBellyFriendsofShelby5KandFunRun'>
+                Full Belly Friends of Shelby Fun Run
+              </a>
+            </p>
+            <p>
               Friends of Shelby wants to encourage kids to get on their feet,
               get outdoors, and get healthy. Thanks to support from{' '}
               <a href='https://eastnashvillepediatricdentistry.com/'>

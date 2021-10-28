@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ActivityCard from './ActivityCard';
-import { Card } from 'semantic-ui-react';
+import { Card, Modal, Button } from 'semantic-ui-react';
 import { withFirebase } from '../Firebase';
 import { withAuthorization } from '../Session';
 
@@ -8,7 +8,12 @@ class ActivityList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { activities: [], userActivities: [] };
+    this.state = {
+      activities: [],
+      userActivities: [],
+      tenActivitiesCompleted: false,
+      allActivitiesCompleted: false,
+    };
   }
 
   componentDidMount() {
@@ -43,6 +48,12 @@ class ActivityList extends Component {
       userActivityList.push(actKey);
       this.props.firebase.updateActivity(userActivityList, user.uid);
     }
+    if (userActivityList.length === 10) {
+      this.setState({ tenActivitiesCompleted: true });
+    }
+    if (userActivityList.length === 16) {
+      this.setState({ allActivitiesCompleted: true });
+    }
   };
 
   handleResetClick = (actKey) => {
@@ -56,9 +67,45 @@ class ActivityList extends Component {
     }
   };
 
+  handleClose = () => {
+    this.setState({ tenActivitiesCompleted: false });
+    this.setState({ allActivitiesCompleted: false });
+  };
+
   render() {
     return (
       <div>
+        <Modal open={this.state.tenActivitiesCompleted} size='mini'>
+          <Modal.Header>Congratulations!</Modal.Header>
+          <Modal.Content>
+            <Modal.Description>
+              You completed 10 activities and will receive a certificate of
+              achievement!
+            </Modal.Description>
+          </Modal.Content>
+          <Modal.Actions>
+            <Button positive onClick={this.handleClose}>
+              Close
+            </Button>
+          </Modal.Actions>
+        </Modal>
+
+        <Modal open={this.state.allActivitiesCompleted} size='mini'>
+          <Modal.Header>Congratulations!</Modal.Header>
+          <Modal.Content>
+            <Modal.Description>
+              You’re a champion! You completed the Full Belly Youth Activity
+              Challenge. Look for an email soon about how to register for the
+              Full Belly Fun Run.
+            </Modal.Description>
+          </Modal.Content>
+          <Modal.Actions>
+            <Button positive onClick={this.handleClose}>
+              Close
+            </Button>
+          </Modal.Actions>
+        </Modal>
+
         <Card.Group centered>
           {Object.keys(this.state.activities).map((activity) => (
             <ActivityCard

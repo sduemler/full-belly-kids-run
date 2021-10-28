@@ -17,7 +17,7 @@ const App = () => (
   <div className='App'>
     <header>
       <div className='wrapper' style={{ textAlign: 'center' }}>
-        <h1>Full Belly Fun Run</h1>
+        <h1>Full Belly Youth Activity Challenge</h1>
       </div>
     </header>
     <div>
