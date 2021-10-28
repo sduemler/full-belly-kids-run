@@ -21,14 +21,17 @@ const Landing = () => {
             </p>
             <p>
               Friends of Shelby wants to encourage kids to get on their feet,
-              get outdoors, and get healthy. Thanks to support from East
-              Nashville Pediatric Dentistry, we have created the Youth Activity
-              Challenge, with 17 fun ways to get kids moving.
+              get outdoors, and get healthy. Thanks to support from{' '}
+              <a href='https://eastnashvillepediatricdentistry.com/'>
+                East Nashville Pediatric Dentistry
+              </a>
+              , we have created the Youth Activity Challenge, with 16 fun ways
+              to get kids moving.
             </p>
             <p>
               Register for free and log every activity you complete up until the
               Wednesday before Thanksgiving – November 24. Complete 10
-              activities and get a certificate of achievement. Complete all 17
+              activities and get a certificate of achievement. Complete all 16
               activities and get a free Full Belly Fun Run registration
               including a race shirt.
             </p>
