@@ -92,8 +92,8 @@ class ActivityList extends Component {
           <Modal.Content>
             <Modal.Description>
               You’re a champion! You completed the Full Belly Youth Activity
-              Challenge. Look for an email soon about how to register for the
-              Full Belly Fun Run.
+              Challenge. Look for an email within a few days about how to
+              register for the Full Belly Fun Run.
             </Modal.Description>
           </Modal.Content>
           <Modal.Actions>

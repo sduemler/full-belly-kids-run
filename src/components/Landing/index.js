@@ -46,7 +46,8 @@ const Landing = () => {
               <List ordered>
                 <List.Item>
                   Get a parent’s permission and register for the Youth Activity
-                  Challenge
+                  Challenge by creating a username and password. Then click
+                  “Activities” at the top of the page.
                 </List.Item>
                 <List.Item>
                   Log every activity you complete on this website
