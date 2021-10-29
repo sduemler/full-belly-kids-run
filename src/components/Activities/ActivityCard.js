@@ -32,10 +32,6 @@ class ActivityCard extends Component {
     });
   }
 
-  componentWillUnmount() {
-    this.props.firebase.getImageUrl.off();
-  }
-
   render() {
     return (
       <Card
