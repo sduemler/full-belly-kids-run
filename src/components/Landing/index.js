@@ -38,8 +38,11 @@ const Landing = () => {
               Register for free and log every activity you complete up until the
               Wednesday before Thanksgiving – November 24. Complete 10
               activities and get a certificate of achievement. Complete all 16
-              activities and get a free Full Belly Fun Run registration
-              including a race shirt.
+              activities and get a{' '}
+              <strong>
+                <u>free</u>
+              </strong>{' '}
+              Full Belly Fun Run registration including a race shirt.
             </p>
             <p>
               It’s easy as:
