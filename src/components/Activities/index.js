@@ -20,11 +20,6 @@ class ActivityList extends Component {
     const user = this.props.firebase.auth.currentUser;
     this.props.firebase.activities().on('value', (snapshot) => {
       const actList = snapshot.val();
-      // for (let key in actList) {
-      //   this.props.firebase.getImageUrl(actList[key].imageUrl).then((url) => {
-      //     actList[key].imageSrc = url;
-      //   });
-      // }
       this.setState({
         activities: actList ?? [],
       });
@@ -113,7 +108,7 @@ class ActivityList extends Component {
             <ActivityCard
               key={activity}
               activityDesc={this.state.activities[activity].name}
-              //activityImage={this.state.activities[activity].imageSrc}
+              activityImage={this.state.activities[activity].imageUrl}
               activityKey={activity}
               completed={this.state.userActivities.includes(activity)}
               handleComplete={this.handleCompleteClick}
