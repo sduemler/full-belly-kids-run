@@ -31,13 +31,13 @@ const Landing = () => {
               <a href='https://eastnashvillepediatricdentistry.com/'>
                 East Nashville Pediatric Dentistry
               </a>
-              , we have created the Youth Activity Challenge, with 16 fun ways
+              , we have created the Youth Activity Challenge, with 15 fun ways
               to get kids moving.
             </p>
             <p>
               Register for free and log every activity you complete up until the
               Wednesday before Thanksgiving – November 24. Complete 10
-              activities and get a certificate of achievement. Complete all 16
+              activities and get a certificate of achievement. Complete all 15
               activities and get a{' '}
               <strong>
                 <u>free</u>
@@ -56,7 +56,7 @@ const Landing = () => {
                   Log every activity you complete on this website
                 </List.Item>
                 <List.Item>
-                  When you have completed all 16 activities you will be emailed
+                  When you have completed all 15 activities you will be emailed
                   a code to register for the Full Belly Fun Run!
                 </List.Item>
               </List>
