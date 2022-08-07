@@ -44,6 +44,13 @@ class Firebase {
 
   users = () => this.db.ref('users');
 
+  child = (uid, index) => this.db.ref(`users/${uid}/children/${index}`);
+
+  children = (uid) => this.db.ref(`users/${uid}/children`);
+
+  addChild = (childList, uid) =>
+    this.db.ref(`users/${uid}/children`).set(childList);
+
   updateActivity = (activityList, uid) =>
     this.db.ref(`users/${uid}/completedActivities`).set(activityList);
 

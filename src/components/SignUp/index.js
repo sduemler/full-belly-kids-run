@@ -5,7 +5,7 @@ import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../resources/constants/routes';
 import * as ERRORS from '../../resources/constants/errors';
 
-import { Form, Message, Container, Segment, Checkbox } from 'semantic-ui-react';
+import { Form, Message, Container, Segment } from 'semantic-ui-react';
 
 const SignUpPage = () => (
   <div>
@@ -19,9 +19,7 @@ const INITIAL_STATE = {
   email: '',
   passwordOne: '',
   passwordTwo: '',
-  legalCheck: false,
-  school: '',
-  grade: '',
+  role: 'user',
   error: null,
 };
 
@@ -33,14 +31,14 @@ class SignUpFormBase extends Component {
   }
 
   onSubmit = (event) => {
-    const { username, email, passwordOne, school, grade } = this.state;
+    const { username, email, role, passwordOne } = this.state;
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then((authUser) => {
         return this.props.firebase
           .user(authUser.user.uid)
-          .set({ username, email, school, grade });
+          .set({ username, email, role });
       })
       .then((authUser) => {
         this.setState({ ...INITIAL_STATE });
@@ -60,23 +58,13 @@ class SignUpFormBase extends Component {
     this.setState((prevState) => ({ legalCheck: !prevState.legalCheck }));
 
   render() {
-    const {
-      username,
-      email,
-      school,
-      grade,
-      passwordOne,
-      passwordTwo,
-      legalCheck,
-      error,
-    } = this.state;
+    const { username, email, passwordOne, passwordTwo, error } = this.state;
 
     const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === '' ||
       email === '' ||
-      username === '' ||
-      legalCheck === false;
+      username === '';
 
     return (
       <Container>
@@ -103,26 +91,6 @@ class SignUpFormBase extends Component {
               iconPosition='left'
             />
             <Form.Input
-              label='School'
-              name='school'
-              value={school}
-              onChange={this.onChange}
-              type='text'
-              placeholder='School'
-              icon='building'
-              iconPosition='left'
-            />
-            <Form.Input
-              label='Grade'
-              name='grade'
-              value={grade}
-              onChange={this.onChange}
-              type='number'
-              placeholder='Grade'
-              icon='pencil alternate'
-              iconPosition='left'
-            />
-            <Form.Input
               label='Password'
               name='passwordOne'
               value={passwordOne}
@@ -142,13 +110,6 @@ class SignUpFormBase extends Component {
               icon='lock'
               iconPosition='left'
             />
-            <Form.Field>
-              <Checkbox
-                label='I have permission from my parent/legal guardian to participate.'
-                checked={legalCheck}
-                onChange={this.toggle}
-              />
-            </Form.Field>
             <Form.Button
               primary
               disabled={isInvalid}
@@ -166,6 +127,14 @@ class SignUpFormBase extends Component {
                 />
               )}
             </Form.Field>
+            <Container fluid text text-textAlign='center'>
+              <p style={{ textAlign: 'center' }}>
+                <strong>
+                  After signing up, you will be redirected to a page where you
+                  can add a child to your account.
+                </strong>
+              </p>
+            </Container>
           </Form>
         </Segment>
       </Container>
