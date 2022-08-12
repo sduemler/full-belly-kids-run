@@ -9,6 +9,7 @@ class ActivityList extends Component {
     super(props);
 
     this.state = {
+      children: [],
       activities: [],
       userActivities: [],
       tenActivitiesCompleted: false,
@@ -26,7 +27,8 @@ class ActivityList extends Component {
     });
     this.props.firebase.user(user.uid).on('value', (snapshot) => {
       this.setState({
-        userActivities: snapshot.val().completedActivities ?? [],
+        //userActivities: snapshot.val().completedActivities ?? [],
+        children: snapshot.val().children ?? [],
       });
     });
   }

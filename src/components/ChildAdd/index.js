@@ -3,7 +3,14 @@ import { withFirebase } from '../Firebase';
 import { withAuthorization } from '../Session';
 
 import * as ERRORS from '../../resources/constants/errors';
-import { Form, Message, Container, Segment, Header } from 'semantic-ui-react';
+import {
+  Form,
+  Message,
+  Container,
+  Segment,
+  Header,
+  List,
+} from 'semantic-ui-react';
 
 const AddChildPage = () => (
   <div style={{ textAlign: 'center' }}>
@@ -75,6 +82,14 @@ class AddChildFormBase extends Component {
 
     return (
       <Container>
+        <Header as='h2' dividing>
+          Children On Account
+        </Header>
+        <List bulleted horizontal>
+          {Object.keys(this.state.children).map((child) => (
+            <List.Item>{this.state.children[child].name}</List.Item>
+          ))}
+        </List>
         <Segment placeholder>
           <Form onSubmit={this.onSubmit}>
             <Header as='h2'>Add Child to Account</Header>
