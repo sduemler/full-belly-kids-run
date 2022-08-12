@@ -51,15 +51,21 @@ class Firebase {
   addChild = (childList, uid) =>
     this.db.ref(`users/${uid}/children`).set(childList);
 
-  updateActivity = (activityList, uid) =>
-    this.db.ref(`users/${uid}/completedActivities`).set(activityList);
+  updateActivity = (activityList, uid, childIndex) =>
+    this.db
+      .ref(`users/${uid}/children/${childIndex}/completedActivities`)
+      .set(activityList);
 
-  updateTenActivitiesCompleted = (uid) => {
-    this.db.ref(`users/${uid}/tenActivitiesCompleted`).set(true);
+  updateTenActivitiesCompleted = (uid, childIndex) => {
+    this.db
+      .ref(`users/${uid}/children/${childIndex}/tenActivitiesCompleted`)
+      .set(true);
   };
 
-  updateAllActivitiesCompleted = (uid) => {
-    this.db.ref(`users/${uid}/allActivitiesCompleted`).set(true);
+  updateAllActivitiesCompleted = (uid, childIndex) => {
+    this.db
+      .ref(`users/${uid}/children/${childIndex}/allActivitiesCompleted`)
+      .set(true);
   };
 
   getImageUrl = (imageUrl) =>
