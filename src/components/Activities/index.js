@@ -119,8 +119,7 @@ class ActivityList extends Component {
           <Modal.Header>Congratulations!</Modal.Header>
           <Modal.Content>
             <Modal.Description>
-              You completed 10 activities and will receive a certificate of
-              achievement!
+              You completed 10 activities! You're so close, keep going!
             </Modal.Description>
           </Modal.Content>
           <Modal.Actions>
