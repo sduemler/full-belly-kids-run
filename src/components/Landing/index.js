@@ -14,7 +14,7 @@ const Landing = () => {
               Full Belly Youth Activity Challenge
             </Header>
             <p>
-              On Saturday, November 27 Friends of Shelby invites all kids 12
+              On Saturday, November 26 Friends of Shelby invites all kids 12
               years old and under to join us for the Full Belly Fun Run - a
               1-mile run, walk, or jog around beautiful Lake Sevier in Shelby
               Park.
@@ -36,7 +36,7 @@ const Landing = () => {
             </p>
             <p>
               Register for free and log every activity you complete up until the
-              Wednesday before Thanksgiving – November 24. Complete all 14
+              Wednesday before Thanksgiving – November 23. Complete all 14
               activities and get a{' '}
               <strong>
                 <u>free</u>
@@ -55,7 +55,7 @@ const Landing = () => {
                   Log every activity you complete on this website
                 </List.Item>
                 <List.Item>
-                  When you have completed all 15 activities you will be emailed
+                  When you have completed all 14 activities you will be emailed
                   a code to register for the Full Belly Fun Run!
                 </List.Item>
               </List>
