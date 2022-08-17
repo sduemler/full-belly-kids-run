@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import { withFirebase } from '../Firebase';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../resources/constants/routes';
 import { AuthUserContext } from '../Session';
@@ -9,7 +10,9 @@ import { Menu, Button } from 'semantic-ui-react';
 const Navigation = () => (
   <div>
     <AuthUserContext.Consumer>
-      {(authUser) => (authUser ? <NavigationAuth /> : <NavigationNonAuth />)}
+      {(authUser) =>
+        authUser ? <NavigationFullAuth /> : <NavigationNonAuth />
+      }
     </AuthUserContext.Consumer>
   </div>
 );
@@ -18,7 +21,20 @@ class NavigationAuth extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { activeItem: 'activities' };
+    this.state = { activeItem: 'activities', admin: false };
+  }
+
+  componentDidMount() {
+    const user = this.props.firebase.auth.currentUser;
+    this.props.firebase.user(user.uid).on('value', (snapshot) => {
+      this.setState({
+        admin: snapshot.val().role === 'admin' ?? false,
+      });
+    });
+  }
+
+  componentWillUnmount() {
+    this.props.firebase.user().off();
   }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
@@ -29,6 +45,16 @@ class NavigationAuth extends Component {
     return (
       <Menu inverted stackable>
         <Menu.Menu position='right'>
+          {this.state.admin && (
+            <Menu.Item
+              as={Link}
+              to={ROUTES.ADMIN}
+              name='admin'
+              active={activeItem === 'admin'}
+              onClick={this.handleItemClick}>
+              Admin
+            </Menu.Item>
+          )}
           <Menu.Item
             as={Link}
             to={ROUTES.ACTIVITIES}
@@ -75,4 +101,5 @@ const NavigationNonAuth = () => (
   </Menu>
 );
 
+const NavigationFullAuth = withFirebase(NavigationAuth);
 export default Navigation;

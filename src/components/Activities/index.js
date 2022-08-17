@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import ActivityCard from './ActivityCard';
-import { Card, Modal, Button, Segment, Divider } from 'semantic-ui-react';
+import { Card, Modal, Button, Divider } from 'semantic-ui-react';
 import { withFirebase } from '../Firebase';
 import { withAuthorization } from '../Session';
-import { Container } from 'semantic-ui-react';
 
 class ActivityList extends Component {
   constructor(props) {
