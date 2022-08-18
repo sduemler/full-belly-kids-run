@@ -10,6 +10,7 @@ import {
   Segment,
   Header,
   List,
+  Divider,
 } from 'semantic-ui-react';
 
 const AddChildPage = () => (
@@ -87,9 +88,14 @@ class AddChildFormBase extends Component {
         </Header>
         <List bulleted horizontal>
           {Object.keys(this.state.children).map((child) => (
-            <List.Item>{this.state.children[child].name}</List.Item>
+            <List.Item as='h3'>{this.state.children[child].name}</List.Item>
           ))}
         </List>
+        <Divider />
+        <p style={{ textAlign: 'center' }}>
+          After entering each child’s name, click the activities tab at the top
+          right to begin tracking your child’s progress.
+        </p>
         <Segment placeholder>
           <Form onSubmit={this.onSubmit}>
             <Header as='h2'>Add Child to Account</Header>

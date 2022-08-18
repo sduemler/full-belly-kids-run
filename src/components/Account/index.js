@@ -8,7 +8,6 @@ const AccountPage = () => (
   <AuthUserContext.Consumer>
     {(authUser) => (
       <div style={{ textAlign: ['center'] }}>
-        {/* <h1>Account: {authUser.email}</h1> */}
         <AddChildForm />
         <PasswordForgetForm />
       </div>

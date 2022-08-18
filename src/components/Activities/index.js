@@ -102,11 +102,17 @@ class ActivityList extends Component {
   };
 
   render() {
+    const childSelected = this.state.childSelected;
+
     return (
       <div>
         <div style={{ textAlign: 'center' }}>
           {Object.keys(this.state.children).map((child) => (
-            <Button onClick={() => this.handleChildSelect(child)}>
+            <Button
+              key={child}
+              toggle
+              active={childSelected === child}
+              onClick={() => this.handleChildSelect(child)}>
               {this.state.children[child].name}
             </Button>
           ))}
