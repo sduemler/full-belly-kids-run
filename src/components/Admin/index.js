@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Segment, List, ListContent } from 'semantic-ui-react';
 
 import { withFirebase } from '../Firebase';
+import { withAuthorization } from '../Session';
 
 class AdminPage extends Component {
   constructor(props) {
@@ -71,4 +72,6 @@ class AdminPage extends Component {
   }
 }
 
-export default withFirebase(AdminPage);
+const condition = (authUser) => !!authUser;
+
+export default withAuthorization(condition)(withFirebase(AdminPage));
