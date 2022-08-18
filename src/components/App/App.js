@@ -12,6 +12,7 @@ import AccountPage from '../Account';
 import { Divider } from 'semantic-ui-react';
 import LandingPage from '../Landing';
 import Footer from '../Navigation/Footer';
+import AdminPage from '../Admin';
 
 const App = () => (
   <div className='App'>
@@ -31,6 +32,7 @@ const App = () => (
           <Route path={ROUTES.ACTIVITIES} component={ActivityList} />
           <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
           <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+          <Route path={ROUTES.ADMIN} component={AdminPage} />
         </div>
       </Router>
     </div>
