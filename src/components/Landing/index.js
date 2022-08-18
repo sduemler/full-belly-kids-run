@@ -28,11 +28,9 @@ const Landing = () => {
             <p>
               Friends of Shelby wants to encourage kids to get on their feet,
               get outdoors, and get healthy. Thanks to support from{' '}
-              <a href='https://eastnashvillepediatricdentistry.com/'>
-                East Nashville Pediatric Dentistry
-              </a>
-              , we have created the Youth Activity Challenge, with 14 fun ways
-              to get kids moving.
+              <a href='https://www.academy.com/'>Academy Sports + Outdoors</a>,
+              we have created the Youth Activity Challenge, with 14 fun ways to
+              get kids moving.
             </p>
             <p>
               Register for free and log every activity you complete up until the
@@ -47,18 +45,22 @@ const Landing = () => {
               It’s easy as:
               <List ordered>
                 <List.Item>
-                  Get a parent’s permission and register for the Youth Activity
-                  Challenge by creating a username and password. Then click
-                  “Activities” at the top of the page.
+                  Register for the Youth Activity Challenge by creating a
+                  username and password. Add your children to your account, then
+                  click “Activities” at the top of the page to see the goals.
                 </List.Item>
                 <List.Item>
-                  Log every activity you complete on this website
+                  Log every activity your child completes on this website.
                 </List.Item>
                 <List.Item>
-                  When you have completed all 14 activities you will be emailed
-                  a code to register for the Full Belly Fun Run!
+                  When your child has completed all 14 activities you will be
+                  emailed a code to register for the Full Belly Fun Run!
                 </List.Item>
               </List>
+            </p>
+            <p style={{ textAlign: 'center' }}>
+              Note - If you created an account last year, you will need to
+              recreate it this year.
             </p>
             <p style={{ textAlign: 'center' }}>
               <strong>Ready, Set, Get Active!</strong>
