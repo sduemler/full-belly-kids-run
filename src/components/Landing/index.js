@@ -33,6 +33,12 @@ const Landing = () => {
               get kids moving.
             </p>
             <p>
+              <a href='https://friendsofshelbypark.squarespace.com/s/Youth-Activity-Challenge-22.pdf'>
+                Download the activity sheet
+              </a>
+              &nbsp;if you want to work on it offline!
+            </p>
+            <p>
               Register for free and log every activity you complete up until the
               Wednesday before Thanksgiving – November 23. Complete all 14
               activities and get a{' '}
